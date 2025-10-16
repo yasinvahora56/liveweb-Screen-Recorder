@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liveweb</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Liveweb Screen Recorder</h2>
+        
+        <div class="quality-section">
+            <label for="quality">Quality</label>
+            <select id="quality" class="form-select">
+                <option value="sd">SD - Standard Definition</option>
+                <option value="hd" selected>HD - High Definition</option>
+                <option value="4k">4K - Ultra HD</option>
+            </select>
+        </div>
+
+        <video id="preview" autoplay muted playsinline>
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="controller">
+            <button id="startbtn" class="btn">Start</button>
+            <button id="stoptbtn" class="btn">Stop</button>
+            <button id="downloadebtn" class="btn">Download</button>
+            <div class="timer">00:00</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</body>
+</html>
