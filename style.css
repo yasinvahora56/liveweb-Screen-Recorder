@@ -1,191 +1,259 @@
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
-        }
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      animation: bgShift 15s ease infinite;
+    }
 
-        .container {
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            max-width: 700px;
-            width: 100%;
-        }
+    @keyframes bgShift {
+      0%, 100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+      50% { background: linear-gradient(135deg, #764ba2 0%, #f093fb 50%, #667eea 100%); }
+    }
 
-        h2 {
-            color: #000000;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      padding: 25px;
+      max-width: 900px;
+      width: 95%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
 
-        .quality-section {
-            margin-bottom: 30px;
-        }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .quality-section label {
-            display: block;
-            color: #000000;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    h2 {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+      letter-spacing: 0.5px;
+      font-size: 28px;
+    }
 
-        #quality {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #000000;
-            border-radius: 8px;
-            background-color: #ffffff;
-            color: #000000;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
+    .quality-section {
+      margin-bottom: 20px;
+    }
 
-        #quality:hover {
-            background-color: #f5f5f5;
-            border-color: #333333;
-        }
+    .quality-section label {
+      display: block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        #quality:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-        }
+    #quality {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #667eea;
+      border-radius: 12px;
+      background-color: #ffffff;
+      color: #333333;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
 
-        #preview {
-            width: 100%;
-            height: 320px;
-            background-color: #000000;
-            border-radius: 12px;
-            margin: 30px 0;
-            object-fit: cover;
-            border: 2px solid #f0f0f0;
-        }
+    #quality:hover {
+      border-color: #764ba2;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    }
 
-        .controller {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
+    #quality:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+      border-color: #764ba2;
+    }
 
-        button {
-            flex: 1;
-            min-width: 120px;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
+    #preview {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+      margin: 20px 0;
+      object-fit: cover;
+      border: 3px solid #667eea;
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+      transition: transform 0.3s ease;
+    }
 
-        #startbtn {
-            background-color: #000000;
-            color: #ffffff;
-        }
+    #preview:hover {
+      transform: scale(1.02);
+    }
 
-        #startbtn:hover {
-            background-color: #222222;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
-        }
+    .controller {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
 
-        #startbtn:active {
-            transform: translateY(0);
-        }
+    button {
+      flex: 1;
+      min-width: 120px;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
 
-        #stoptbtn {
-            background-color: #000000;
-            color: #ffffff;
-        }
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: left 0.5s ease;
+      z-index: 0;
+    }
 
-        #stoptbtn:hover {
-            background-color: #222222;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
-        }
+    button:hover::before {
+      left: 100%;
+    }
 
-        #stoptbtn:active {
-            transform: translateY(0);
-        }
+    button > * {
+      position: relative;
+      z-index: 1;
+    }
 
-        #downloadebtn {
-            background-color: #ffffff;
-            color: #000000;
-            border: 2px solid #000000;
-        }
+    #startbtn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
 
-        #downloadebtn:hover {
-            background-color: #000000;
-            color: #ffffff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
-        }
+    #startbtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+    }
 
-        #downloadebtn:active {
-            transform: translateY(0);
-        }
+    #startbtn:active {
+      transform: translateY(-1px);
+    }
 
-        .timer {
-            min-width: 80px;
-            padding: 14px 20px;
-            background-color: #000000;
-            color: #ffffff;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 18px;
-            text-align: center;
-            letter-spacing: 1px;
-            font-family: 'Courier New', monospace;
-        }
+    #stoptbtn {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+    }
 
-        @media (max-width: 576px) {
-            .container {
-                padding: 25px;
-            }
+    #stoptbtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(245, 87, 108, 0.5);
+    }
 
-            h2 {
-                font-size: 24px;
-                margin-bottom: 25px;
-            }
+    #stoptbtn:active {
+      transform: translateY(-1px);
+    }
 
-            #preview {
-                height: 240px;
-                margin: 20px 0;
-            }
+    #downloadebtn {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+    }
 
-            .controller {
-                flex-direction: column;
-                gap: 10px;
-            }
+    #downloadebtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(79, 172, 254, 0.5);
+    }
 
-            button {
-                width: 100%;
-            }
+    #downloadebtn:active {
+      transform: translateY(-1px);
+    }
 
-            .timer {
-                width: 100%;
-            }
-        }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .timer {
+      min-width: 100px;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 22px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-family: 'Courier New', monospace;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 30px;
+      }
+
+      h2 {
+        font-size: 26px;
+        margin-bottom: 25px;
+      }
+
+      #preview {
+        height: 260px;
+        margin: 25px 0;
+      }
+
+      .controller {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .timer {
+        width: 100%;
+      }
+    }
