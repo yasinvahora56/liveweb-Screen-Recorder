@@ -1,0 +1,72 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 80px;
+      color: #ffffff;
+    }
+
+    .screen {
+      display: none;
+      width: 60%;
+      height: 40%;
+      max-width: 1200px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+      @media (max-width: 968px) {
+      .recording-screen {
+        grid-template-columns: 1fr;
+      }
+
+      .controls-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .status-card,
+      .control-btn {
+        flex: 1;
+        min-width: 150px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .welcome-screen h1 {
+        font-size: 32px;
+      }
+
+      .quality-options {
+        flex-direction: column;
+      }
+
+      .quality-option {
+        min-width: 100%;
+      }
+
+      .controls-section {
+        flex-direction: column;
+      }
+
+      #preview, #playback {
+        height: 300px;
+      }
+    }
