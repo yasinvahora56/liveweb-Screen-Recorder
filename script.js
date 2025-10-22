@@ -66,6 +66,7 @@
 
         mediaRecorder.onstop = () => {
           stopTimer();
+          stopBtn.disabled= true;
           downloadBtn.disabled = false;
           uploadBtn.disabled = false;
           infoStatus.textContent = 'Stopped';
