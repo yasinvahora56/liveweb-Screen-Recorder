@@ -3,7 +3,9 @@
     let stream;
     let timeInterval;
     let seconds = 0;
+    let selectedRecordingType = 'screen';
     let selectedQuality = 'hd';
+    let selectedAudioSource = 'silent';
 
     // Elements
     const welcomeScreen = document.getElementById('welcomeScreen');
@@ -22,6 +24,70 @@
     const infoQuality = document.getElementById('infoQuality');
     const infoStatus = document.getElementById('infoStatus');
     const uploadBtn = document.getElementById('uploadBtn');
+    const recordingTypeContainer = document.getElementById('recordingTypeContainer');
+    const qualitySetupContainer = document.getElementById('qualitySetupContainer');
+    const recordingOptions = document.querySelectorAll('.recording-option');
+    // script.js (Elements section)
+    const audioSetupContainer = document.getElementById('audioSetupContainer');
+    const audioOptions = document.querySelectorAll('.audio-option');
+    const backToTypeBtn = document.getElementById('backToTypeBtn');
+    const backToAudioBtn = document.getElementById('backToAudioBtn');
+
+
+    // Recording type selection
+
+    recordingOptions.forEach(option => {
+
+      option.addEventListener('click', () => {
+        
+        recordingOptions.forEach(opt => opt.classList.remove('selected'));
+
+        option.classList.add('selected')
+
+        selectedRecordingType = option.dataset.type
+
+        // slide logic
+
+        recordingTypeContainer.classList.remove('active')
+        audioSetupContainer.classList.add('active');
+
+        // if(selectedRecordingType === 'video'){
+        //   beginRecordingBtn.textContent = 'Start Web Recording'
+        // }else{
+        //   beginRecordingBtn.textContent = 'Start Screen Recording'
+        // }
+      })
+    });
+
+    audioOptions.forEach(option => {
+      option.addEventListener('click', () =>{
+        audioOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected')
+        selectedAudioSource = option.dataset.audio
+
+        // Slide Logic
+        audioSetupContainer.classList.remove('active')
+        qualitySetupContainer.classList.add('active')
+
+        if(selectedAudioSource === 'system' || selectedAudioSource === 'mic-system'){
+          console.warn('System audio recording is complex and might not be supported on all browsers/OS.')
+        }
+
+      })
+      
+    });
+
+    // Back Button
+    backToTypeBtn.addEventListener('click', () => {
+      audioSetupContainer.classList.remove('active')
+      recordingTypeContainer.classList.remove('remove')
+    })
+
+    // Back Button
+    backToAudioBtn.addEventListener('click', () => {
+      qualitySetupContainer.classList.remove('active')
+      audioSetupContainer.classList.add('active')
+    })
 
     // Quality selection
     qualityOptions.forEach(option => {
@@ -31,6 +97,8 @@
         selectedQuality = option.dataset.quality;
       });
     });
+
+
 
    // Start recording flow
     beginRecordingBtn.addEventListener('click', async () => {
@@ -185,6 +253,14 @@
       welcomeScreen.style.display = 'block'
       infoStatus.textContent = 'Ready';
       uploadBtn.textContent = '⬆ Upload to Cloud';
+
+
+     qualitySetupContainer.classList.remove('active');
+  audioSetupContainer.classList.remove('active');
+  recordingTypeContainer.classList.add('active');
+
+  recordingOptions.forEach(opt => opt.classList.remove('selected'));
+  audioOptions.forEach(opt => opt.classList.remove('selected'));
     });
 
     // Thank you for video
