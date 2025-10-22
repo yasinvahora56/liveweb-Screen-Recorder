@@ -8,29 +8,68 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h2>🎥 Screen Recorder</h2>
-
-    <div class="quality-section">
-      <label for="quality">Quality</label>
-      <select id="quality" class="form-select">
-        <option value="sd">SD - Standard Definition</option>
-        <option value="hd" selected>HD - High Definition</option>
-        <option value="4k">4K - Ultra HD</option>
-      </select>
-    </div>
-
-    <video id="preview" autoplay muted playsinline>
-      Your browser does not support the video tag.
-    </video>
-
-    <div class="controller">
-      <button id="startbtn" class="btn">Start</button>
-      <button id="stoptbtn" class="btn">Stop</button>
-      <button id="downloadebtn" class="btn">Download</button>
-      <div id="timer" class="timer">00:00</div>
+    <div class="screen welcome-screen active" id="welcomeScreen">
+    <h1>🎥 Screen Recorder Pro</h1>
+    <p>Capture your screen in high quality with ease. Choose your preferred settings and start recording.</p>
+    
+    <div class="setup-container">
+      <div class="quality-group">
+        <label>Select Recording Quality</label>
+        <div class="quality-options">
+          <div class="quality-option" data-quality="sd">
+            <div class="title">SD</div>
+            <div class="desc">640x360</div>
+          </div>
+          <div class="quality-option selected" data-quality="hd">
+            <div class="title">HD</div>
+            <div class="desc">1280x720</div>
+          </div>
+          <div class="quality-option" data-quality="4k">
+            <div class="title">4K</div>
+            <div class="desc">3840x2160</div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="start-btn" id="beginRecording">Start Recording</button>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Recording Screen -->
+  <div class="screen recording-screen" id="recordingScreen" style="display: none;">
+    <div class="video-section">
+      <video id="preview" autoplay muted playsinline></video>
+      <video id="playback" controls></video>
+      <button class="preview-btn" id="previewBtn">Show Preview</button>
+    </div>
+
+    <div class="controls-section">
+      <div class="status-card" id="statusCard">
+        <div class="status-label">Recording Time</div>
+        <div class="timer-display" id="timer">00:00<span class="recording-indicator" id="recordingDot"></span></div>
+      </div>
+
+      <button class="control-btn stop" id="stopBtn">⏹ Stop Recording</button>
+      <button class="control-btn download" id="downloadBtn" disabled>⬇ Download Video</button>
+      <button class="control-btn new" id="newRecordingBtn">🔄 New Recording</button>
+
+      <div class="info-card">
+        <h3>Recording Info</h3>
+        <div class="info-item">
+          <span class="label">Quality:</span>
+          <span class="value" id="infoQuality">HD</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Format:</span>
+          <span class="value">WebM</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Status:</span>
+          <span class="value" id="infoStatus">Recording...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
 </body>
 </html>
