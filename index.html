@@ -13,29 +13,78 @@
     <h1>🎥 Screen Recorder Pro</h1>
     <p>Capture your screen in high quality with ease. Choose your preferred settings and start recording.</p>
     
-    <div class="setup-container">
-      <div class="quality-group">
-        <label>Select Recording Quality</label>
-        <div class="quality-options">
-          <div class="quality-option" data-quality="sd">
-            <div class="title">SD</div>
-            <div class="desc">640x360</div>
-          </div>
-          <div class="quality-option selected" data-quality="hd">
-            <div class="title">HD</div>
-            <div class="desc">1280x720</div>
-          </div>
-          <div class="quality-option" data-quality="4k">
-            <div class="title">4K</div>
-            <div class="desc">3840x2160</div>
-          </div>
-        </div>
+  <div class="setup-steps-window">
+    <div class="setup-container setup-step active" id="recordingTypeContainer">
+    <label>1. Select Recording Type</label>
+    <div class="recording-type-options">
+      <div class="recording-option" data-type="screen">
+        <div class="icon">🖥️</div>
+        <div class="title">Screen Only</div>
+        <div class="desc">Record your entire screen or a window.</div>
       </div>
-      
-      <button class="start-btn" id="beginRecording">Start Recording</button>
+      <div class="recording-option" data-type="screen-video">
+        <div class="icon">👨‍💻</div>
+        <div class="title">Screen & Video</div>
+        <div class="desc">Record your screen with your webcam.</div>
+      </div>
+      <div class="recording-option" data-type="video">
+        <div class="icon">📹</div>
+        <div class="title">Video Only</div>
+        <div class="desc">Record just your webcam.</div>
+      </div>
     </div>
   </div>
 
+  <div class="setup-container setup-step" id="audioSetupContainer">
+    <label>2. Select Audio Source</label>
+    <div class="recording-type-options">
+      <div class="audio-option" data-audio="silent">
+        <div class="icon">🤫</div>
+        <div class="title">Silent</div>
+        <div class="desc">No audio will be recorded.</div>
+      </div>
+      <div class="audio-option" data-audio="mic">
+        <div class="icon">🎤</div>
+        <div class="title">Microphone</div>
+        <div class="desc">Record your voice only.</div>
+      </div>
+      <div class="audio-option" data-audio="system">
+        <div class="icon">💻</div>
+        <div class="title">System Audio</div>
+        <div class="desc">Record sound from your computer.</div>
+      </div>
+      <div class="audio-option" data-audio="mic-system">
+        <div class="icon">🎧</div>
+        <div class="title">Mic + System</div>
+        <div class="desc">Record both your voice and system audio.</div>
+      </div>
+    </div>
+    <button class="back-btn" id="backToTypeBtn">⬅ Back</button>
+  </div>
+
+  <div class="setup-container setup-step" id="qualitySetupContainer">
+    <div class="quality-group">
+      <label>3. Select Recording Quality</label>
+      <div class="quality-options">
+        <div class="quality-option" data-quality="sd">
+          <div class="title">SD</div>
+          <div class="desc">640x360</div>
+        </div>
+        <div class="quality-option selected" data-quality="hd">
+          <div class="title">HD</div>
+          <div class="desc">1280x720</div>
+        </div>
+        <div class="quality-option" data-quality="4k">
+          <div class="title">4K</div>
+          <div class="desc">3840x2160</div>
+        </div>
+      </div>
+    </div>
+    <button class="start-btn" id="beginRecording">Start Recording</button>
+    <button class="back-btn" id="backToAudioBtn">⬅ Back</button>
+  </div>
+  </div>
+</div>
   <!-- Recording Screen -->
   <div class="screen recording-screen" id="recordingScreen" style="display: none;">
     <div class="video-section">
