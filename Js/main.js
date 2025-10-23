@@ -1,6 +1,8 @@
  let mediaRecorder;
     let recordedChunks = [];
     let stream;
+    let audioStream;
+    let videoStream;
     let timeInterval;
     let seconds = 0;
     let selectedRecordingType = 'screen';
